@@ -1,4 +1,6 @@
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
 import java.util.Map;
 import org.clothoapi.clotho3javaapi.Clotho;
@@ -21,8 +23,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
      */
     public static final String clothoRemoteAddress = "wss://www.clothocad.org/websocket";
     public static final String clothoLocalAddress = "wss://localhost:8443/websocket";
-    public ClothoConnection conn;
-    public Clotho clothoObject;
+    public static ClothoConnection conn;
+    public static Clotho clothoObject;
     public static String username;
     public static String password;
     
@@ -42,6 +44,26 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        HelpQueryDialog = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        CloseQueryHelp = new javax.swing.JButton();
+        HelpCreateDialog = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        CloseCreateHelp = new javax.swing.JButton();
+        HelpGetDialog = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        CloseGetHelp = new javax.swing.JButton();
+        HelpSetDialog = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        CloseQueryHelp1 = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         HeaderPane = new javax.swing.JLayeredPane();
         NonaIcon = new javax.swing.JLabel();
         NyxIcon = new javax.swing.JLabel();
@@ -59,59 +81,347 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         UserInput1 = new javax.swing.JTextField();
         LoginLabel = new javax.swing.JLabel();
         CreateUserLabel = new javax.swing.JLabel();
-        LoginButton = new javax.swing.JButton();
-        CreateUserButton = new javax.swing.JButton();
+        javax.swing.JButton LoginButton = new javax.swing.JButton();
+        javax.swing.JButton CreateUserButton = new javax.swing.JButton();
         UserLabel2 = new javax.swing.JLabel();
         PassLabel1 = new javax.swing.JLabel();
-        UserInput2 = new javax.swing.JTextField();
         PassLabel2 = new javax.swing.JLabel();
         UserLabel1 = new javax.swing.JLabel();
-        PassInput1 = new javax.swing.JPasswordField();
+        UserInput2 = new javax.swing.JTextField();
         PassInput2 = new javax.swing.JPasswordField();
+        PassInput1 = new javax.swing.JPasswordField();
+        javax.swing.JButton LogoutButton = new javax.swing.JButton();
         FunctionsPane = new javax.swing.JPanel();
         FunctionsList = new javax.swing.JTabbedPane();
         CreatePane = new javax.swing.JPanel();
         JSONObjLabel = new javax.swing.JLabel();
         CreateButton = new javax.swing.JButton();
         CreateHelp = new javax.swing.JButton();
+        JSONObjLabel4 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        CreateObjText = new javax.swing.JTextArea();
+        CreateInsertButton = new javax.swing.JButton();
+        CreateKeyText = new javax.swing.JTextField();
+        CreateValueText = new javax.swing.JTextField();
+        JSONObjLabel5 = new javax.swing.JLabel();
+        JSONObjLabel6 = new javax.swing.JLabel();
+        CreateErrorField = new javax.swing.JTextField();
         QueryPane = new javax.swing.JPanel();
         JSONObjLabel1 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        InsertJSONObj1 = new javax.swing.JTextArea();
         QueryButton = new javax.swing.JButton();
         QueryHelp = new javax.swing.JButton();
+        QueryKeyText = new javax.swing.JTextField();
+        QueryValueText = new javax.swing.JTextField();
+        JSONObjLabel7 = new javax.swing.JLabel();
+        JSONObjLabel8 = new javax.swing.JLabel();
+        QueryInsertButton = new javax.swing.JButton();
+        JSONObjLabel9 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        QueryObjText = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        QueryErrorField = new javax.swing.JTextArea();
+        QueryOneButton = new javax.swing.JButton();
+        SetPane = new javax.swing.JPanel();
+        SetQLabel = new javax.swing.JLabel();
+        SetButton = new javax.swing.JButton();
+        SetKeyText = new javax.swing.JTextField();
+        SetValueText = new javax.swing.JTextField();
+        JSONObjLabel10 = new javax.swing.JLabel();
+        JSONObjLabel11 = new javax.swing.JLabel();
+        SetInsertButton = new javax.swing.JButton();
+        JSONObjLabel12 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        SetObjText = new javax.swing.JTextArea();
+        ChangeButton = new javax.swing.JButton();
+        SetQLabel1 = new javax.swing.JLabel();
+        JSONObjLabel13 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        EditObjText = new javax.swing.JTextArea();
+        SetHelp = new javax.swing.JButton();
+        SetErrorField = new javax.swing.JLabel();
         GetPane = new javax.swing.JPanel();
         JSONObjLabel2 = new javax.swing.JLabel();
         IDInputGet = new javax.swing.JTextField();
         GetButton = new javax.swing.JButton();
         GetHelp = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        GetErrorField = new javax.swing.JTextArea();
         DestroyPane = new javax.swing.JPanel();
         JSONObjLabel3 = new javax.swing.JLabel();
         IDInputDes = new javax.swing.JTextField();
         DestroyButton = new javax.swing.JButton();
         DestroyHelp = new javax.swing.JButton();
-        SetPane = new javax.swing.JPanel();
-        SetQLabel = new javax.swing.JLabel();
-        SetELabel = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        SetEInput = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        SetQInput = new javax.swing.JTextArea();
-        SetButton = new javax.swing.JButton();
-        SetHelp = new javax.swing.JButton();
         DownloadsPane = new javax.swing.JPanel();
+
+        HelpQueryDialog.setMinimumSize(new java.awt.Dimension(645, 465));
+        HelpQueryDialog.setPreferredSize(new java.awt.Dimension(645, 465));
+        HelpQueryDialog.setResizable(false);
+
+        jPanel2.setBackground(new java.awt.Color(63, 81, 195));
+        jPanel2.setPreferredSize(new java.awt.Dimension(628, 440));
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(63, 81, 195));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(240, 240, 240));
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("QUERY\n\nFunction: Queries for all Clotho objects exactly matching the given data \n\nInput: JSON object containing given data\n\nOutput: Query All will display all objects matching given data\nQuery One will only display the first one Clotho finds.\n\n\nExample code to try:\nInsert a key value pair matching one of the objects you have created:\n     name: example\nThen press Query One or Query All");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 2));
+        jScrollPane7.setViewportView(jTextArea2);
+
+        CloseQueryHelp.setBackground(new java.awt.Color(83, 109, 254));
+        CloseQueryHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CloseQueryHelp.setForeground(new java.awt.Color(255, 255, 255));
+        CloseQueryHelp.setText("OK");
+        CloseQueryHelp.setContentAreaFilled(false);
+        CloseQueryHelp.setOpaque(true);
+        CloseQueryHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseQueryHelpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(CloseQueryHelp)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CloseQueryHelp)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout HelpQueryDialogLayout = new javax.swing.GroupLayout(HelpQueryDialog.getContentPane());
+        HelpQueryDialog.getContentPane().setLayout(HelpQueryDialogLayout);
+        HelpQueryDialogLayout.setHorizontalGroup(
+            HelpQueryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+        );
+        HelpQueryDialogLayout.setVerticalGroup(
+            HelpQueryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+        );
+
+        HelpCreateDialog.setMinimumSize(new java.awt.Dimension(645, 465));
+        HelpCreateDialog.setPreferredSize(new java.awt.Dimension(645, 465));
+        HelpCreateDialog.setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(63, 81, 195));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(63, 81, 195));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(240, 240, 240));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("CREATE\n\nFunction: Creates a Clotho object\n\nInput: JSON object with the given details\n\nOutput: The ID number of the newly created object\n\nExample to try:\nInsert a couple of key-value pairs describing your object:\n    name: example\n    id : 1\nThen press Create");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 2));
+        jScrollPane6.setViewportView(jTextArea1);
+
+        CloseCreateHelp.setBackground(new java.awt.Color(83, 109, 254));
+        CloseCreateHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CloseCreateHelp.setForeground(new java.awt.Color(255, 255, 255));
+        CloseCreateHelp.setText("OK");
+        CloseCreateHelp.setContentAreaFilled(false);
+        CloseCreateHelp.setOpaque(true);
+        CloseCreateHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseCreateHelpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(CloseCreateHelp)))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(CloseCreateHelp)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout HelpCreateDialogLayout = new javax.swing.GroupLayout(HelpCreateDialog.getContentPane());
+        HelpCreateDialog.getContentPane().setLayout(HelpCreateDialogLayout);
+        HelpCreateDialogLayout.setHorizontalGroup(
+            HelpCreateDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        HelpCreateDialogLayout.setVerticalGroup(
+            HelpCreateDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        HelpGetDialog.setMinimumSize(new java.awt.Dimension(645, 465));
+        HelpGetDialog.setPreferredSize(new java.awt.Dimension(645, 465));
+        HelpGetDialog.setResizable(false);
+
+        jPanel3.setBackground(new java.awt.Color(63, 81, 195));
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(63, 81, 195));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(240, 240, 240));
+        jTextArea3.setRows(5);
+        jTextArea3.setText("GET\n\nFunction: Returns a Clotho object in JSON format\n\nInput: The ID of the object\n\nOutput: A JSON object of the Clotho Object specified\n\nExample to try:\nInsert the id of a previously created object\nThen press Get");
+        jTextArea3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 2));
+        jScrollPane12.setViewportView(jTextArea3);
+
+        CloseGetHelp.setBackground(new java.awt.Color(83, 109, 254));
+        CloseGetHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CloseGetHelp.setForeground(new java.awt.Color(255, 255, 255));
+        CloseGetHelp.setText("OK");
+        CloseGetHelp.setContentAreaFilled(false);
+        CloseGetHelp.setOpaque(true);
+        CloseGetHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseGetHelpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(CloseGetHelp)))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(CloseGetHelp)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout HelpGetDialogLayout = new javax.swing.GroupLayout(HelpGetDialog.getContentPane());
+        HelpGetDialog.getContentPane().setLayout(HelpGetDialogLayout);
+        HelpGetDialogLayout.setHorizontalGroup(
+            HelpGetDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        HelpGetDialogLayout.setVerticalGroup(
+            HelpGetDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        HelpSetDialog.setMinimumSize(new java.awt.Dimension(645, 465));
+        HelpSetDialog.setPreferredSize(new java.awt.Dimension(645, 465));
+
+        jPanel4.setBackground(new java.awt.Color(63, 81, 195));
+
+        CloseQueryHelp1.setBackground(new java.awt.Color(83, 109, 254));
+        CloseQueryHelp1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CloseQueryHelp1.setForeground(new java.awt.Color(255, 255, 255));
+        CloseQueryHelp1.setText("OK");
+        CloseQueryHelp1.setContentAreaFilled(false);
+        CloseQueryHelp1.setOpaque(true);
+        CloseQueryHelp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseQueryHelp1ActionPerformed(evt);
+            }
+        });
+
+        jTextArea4.setEditable(false);
+        jTextArea4.setBackground(new java.awt.Color(63, 81, 195));
+        jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jTextArea4.setForeground(new java.awt.Color(240, 240, 240));
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("SET\n\nFunction: Sets all the fields of an object to the given data\n\nInput: JSON object containing all the new data you want the object to take on. If you wish to change an existing object, the ID number must be included in the edit box.\n\nOutput: The ID of the changed object\n\nExample to try:\nFirst query the object: {\"id\":\"1\", \"name\":\"example\"} by inserting the key-value pairs. Next, change the name and press Enter Changes");
+        jTextArea4.setToolTipText("");
+        jTextArea4.setWrapStyleWord(true);
+        jTextArea4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 2));
+        jScrollPane13.setViewportView(jTextArea4);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(CloseQueryHelp1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CloseQueryHelp1)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout HelpSetDialogLayout = new javax.swing.GroupLayout(HelpSetDialog.getContentPane());
+        HelpSetDialog.getContentPane().setLayout(HelpSetDialogLayout);
+        HelpSetDialogLayout.setHorizontalGroup(
+            HelpSetDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        HelpSetDialogLayout.setVerticalGroup(
+            HelpSetDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(48, 63, 159));
         setFocusable(false);
         setForeground(java.awt.Color.white);
+        setMaximumSize(new java.awt.Dimension(863, 862));
+        setMinimumSize(new java.awt.Dimension(863, 862));
 
         HeaderPane.setBackground(new java.awt.Color(48, 63, 159));
         HeaderPane.setOpaque(true);
         HeaderPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         NonaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rsz_11rsz_nonafoundation.png"))); // NOI18N
-        HeaderPane.add(NonaIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, -1, -1));
+        HeaderPane.add(NonaIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
 
         NyxIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/L.png"))); // NOI18N
         HeaderPane.add(NyxIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
@@ -125,7 +435,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         AboutPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 81, 195)));
 
         WelcomeLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 70)); // NOI18N
-        WelcomeLabel.setForeground(new java.awt.Color(240, 240, 240));
+        WelcomeLabel.setForeground(new java.awt.Color(197, 202, 233));
         WelcomeLabel.setText("Welcome!");
 
         jScrollPane1.setBorder(null);
@@ -136,7 +446,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         StartText.setBackground(new java.awt.Color(63, 81, 195));
         StartText.setColumns(20);
         StartText.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        StartText.setForeground(new java.awt.Color(255, 255, 255));
+        StartText.setForeground(new java.awt.Color(197, 202, 233));
         StartText.setLineWrap(true);
         StartText.setRows(4);
         StartText.setText("Where to start: If you are completely new to Clotho, we \nrecommend starting with the general use tutorial. If you \nwould like to continue and develop your own application \nfor Clotho, the developer tutorial will show you the basics.");
@@ -150,7 +460,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         NyxText.setBackground(new java.awt.Color(63, 81, 195));
         NyxText.setColumns(20);
         NyxText.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        NyxText.setForeground(new java.awt.Color(255, 255, 255));
+        NyxText.setForeground(new java.awt.Color(197, 202, 233));
         NyxText.setLineWrap(true);
         NyxText.setRows(4);
         NyxText.setText("Nyx: She is the Greek goddess of the night and one of the \nprimordial gods responsible for the beginning of creation. \nIn some texts, she is the mother of the fates: Clotho, \nLachesis, and Atropos.");
@@ -165,7 +475,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         AboutText.setBackground(new java.awt.Color(63, 81, 195));
         AboutText.setColumns(20);
         AboutText.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        AboutText.setForeground(new java.awt.Color(255, 255, 255));
+        AboutText.setForeground(new java.awt.Color(197, 202, 233));
         AboutText.setLineWrap(true);
         AboutText.setRows(3);
         AboutText.setText("About: Nyx is a teaching application written in Java that \nworks with Clotho 3.0 through interacting with the Clotho \nJava API to demonstrate Clotho's abilities.");
@@ -176,12 +486,12 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         AboutPaneLayout.setHorizontalGroup(
             AboutPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AboutPaneLayout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(116, Short.MAX_VALUE)
                 .addGroup(AboutPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 88, Short.MAX_VALUE))
             .addGroup(AboutPaneLayout.createSequentialGroup()
                 .addGap(272, 272, 272)
                 .addComponent(WelcomeLabel)
@@ -198,30 +508,33 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("About", AboutPane);
 
         AccountPane.setBackground(new java.awt.Color(63, 81, 195));
 
+        UserInput1.setBackground(new java.awt.Color(63, 81, 195));
         UserInput1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        UserInput1.setForeground(new java.awt.Color(197, 202, 233));
+        UserInput1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
         UserInput1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         UserInput1.setMinimumSize(new java.awt.Dimension(6, 34));
         UserInput1.setPreferredSize(new java.awt.Dimension(130, 25));
 
-        LoginLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 36)); // NOI18N
-        LoginLabel.setForeground(new java.awt.Color(197, 202, 233));
-        LoginLabel.setText("Login:");
+        LoginLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
+        LoginLabel.setForeground(new java.awt.Color(255, 255, 255));
+        LoginLabel.setText("Existing User?");
 
-        CreateUserLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 36)); // NOI18N
-        CreateUserLabel.setForeground(new java.awt.Color(197, 202, 233));
-        CreateUserLabel.setText("Create User:");
+        CreateUserLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
+        CreateUserLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CreateUserLabel.setText("New User?");
 
         LoginButton.setBackground(new java.awt.Color(83, 109, 254));
         LoginButton.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(255, 255, 255));
-        LoginButton.setText("Enter");
+        LoginButton.setText("Login");
         LoginButton.setContentAreaFilled(false);
         LoginButton.setOpaque(true);
         LoginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +546,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         CreateUserButton.setBackground(new java.awt.Color(83, 109, 254));
         CreateUserButton.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         CreateUserButton.setForeground(new java.awt.Color(255, 255, 255));
-        CreateUserButton.setText("Enter");
+        CreateUserButton.setText("Create User");
         CreateUserButton.setContentAreaFilled(false);
         CreateUserButton.setOpaque(true);
         CreateUserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -250,10 +563,6 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         PassLabel1.setForeground(new java.awt.Color(197, 202, 233));
         PassLabel1.setText("Password:");
 
-        UserInput2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        UserInput2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        UserInput2.setPreferredSize(new java.awt.Dimension(130, 31));
-
         PassLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         PassLabel2.setForeground(new java.awt.Color(197, 202, 233));
         PassLabel2.setText("Password:");
@@ -262,11 +571,35 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         UserLabel1.setForeground(new java.awt.Color(197, 202, 233));
         UserLabel1.setText("Username:");
 
-        PassInput1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        UserInput2.setBackground(new java.awt.Color(63, 81, 195));
+        UserInput2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        UserInput2.setForeground(new java.awt.Color(197, 202, 233));
+        UserInput2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        UserInput2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        UserInput2.setMinimumSize(new java.awt.Dimension(6, 34));
+        UserInput2.setPreferredSize(new java.awt.Dimension(130, 25));
+
+        PassInput2.setBackground(new java.awt.Color(63, 81, 195));
+        PassInput2.setForeground(new java.awt.Color(197, 202, 233));
+        PassInput2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        PassInput2.setPreferredSize(new java.awt.Dimension(130, 25));
+
+        PassInput1.setBackground(new java.awt.Color(63, 81, 195));
+        PassInput1.setForeground(new java.awt.Color(197, 202, 233));
+        PassInput1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
         PassInput1.setPreferredSize(new java.awt.Dimension(130, 25));
 
-        PassInput2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        PassInput2.setPreferredSize(new java.awt.Dimension(130, 25));
+        LogoutButton.setBackground(new java.awt.Color(83, 109, 254));
+        LogoutButton.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
+        LogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        LogoutButton.setText("Logout");
+        LogoutButton.setContentAreaFilled(false);
+        LogoutButton.setOpaque(true);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AccountPaneLayout = new javax.swing.GroupLayout(AccountPane);
         AccountPane.setLayout(AccountPaneLayout);
@@ -275,36 +608,37 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             .addGroup(AccountPaneLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoutButton)
                     .addComponent(CreateUserLabel)
                     .addComponent(LoginButton)
                     .addComponent(CreateUserButton)
-                    .addComponent(LoginLabel)
                     .addGroup(AccountPaneLayout.createSequentialGroup()
-                        .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(UserLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(UserInput2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(UserLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LoginLabel))
                         .addGap(31, 31, 31)
-                        .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(PassLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(PassInput2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(PassLabel1)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         AccountPaneLayout.setVerticalGroup(
             AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AccountPaneLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(100, 100, 100)
                 .addComponent(LoginLabel)
                 .addGap(18, 18, 18)
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -312,19 +646,21 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassLabel1)
                     .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LoginButton)
                 .addGap(54, 54, 54)
                 .addComponent(CreateUserLabel)
                 .addGap(18, 18, 18)
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UserLabel2)
-                    .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassLabel2)
+                    .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(CreateUserButton)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(LogoutButton)
+                .addContainerGap(388, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("Account", AccountPane);
@@ -334,13 +670,13 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         FunctionsList.setBackground(new java.awt.Color(255, 255, 255));
         FunctionsList.setForeground(new java.awt.Color(48, 63, 159));
         FunctionsList.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        FunctionsList.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        FunctionsList.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 20)); // NOI18N
 
         CreatePane.setBackground(new java.awt.Color(63, 81, 195));
 
         JSONObjLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         JSONObjLabel.setForeground(new java.awt.Color(197, 202, 233));
-        JSONObjLabel.setText("Insert Json Object:");
+        JSONObjLabel.setText("Your Object:");
 
         CreateButton.setBackground(new java.awt.Color(83, 109, 254));
         CreateButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -360,31 +696,122 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         CreateHelp.setText("Help");
         CreateHelp.setContentAreaFilled(false);
         CreateHelp.setOpaque(true);
+        CreateHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateHelpActionPerformed(evt);
+            }
+        });
+
+        JSONObjLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel4.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel4.setText("Key:");
+
+        CreateObjText.setEditable(false);
+        CreateObjText.setBackground(new java.awt.Color(63, 81, 195));
+        CreateObjText.setColumns(20);
+        CreateObjText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        CreateObjText.setForeground(new java.awt.Color(197, 202, 233));
+        CreateObjText.setRows(5);
+        CreateObjText.setText("{\n}");
+        CreateObjText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane8.setViewportView(CreateObjText);
+
+        CreateInsertButton.setBackground(new java.awt.Color(83, 109, 254));
+        CreateInsertButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CreateInsertButton.setForeground(new java.awt.Color(255, 255, 255));
+        CreateInsertButton.setText("Insert Map");
+        CreateInsertButton.setContentAreaFilled(false);
+        CreateInsertButton.setOpaque(true);
+        CreateInsertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateInsertButtonActionPerformed(evt);
+            }
+        });
+
+        CreateKeyText.setBackground(new java.awt.Color(63, 81, 195));
+        CreateKeyText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        CreateKeyText.setForeground(new java.awt.Color(197, 202, 233));
+        CreateKeyText.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 202, 233), 2, true));
+
+        CreateValueText.setBackground(new java.awt.Color(63, 81, 195));
+        CreateValueText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        CreateValueText.setForeground(new java.awt.Color(197, 202, 233));
+        CreateValueText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+
+        JSONObjLabel5.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        JSONObjLabel5.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel5.setText("Insert Map:");
+
+        JSONObjLabel6.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel6.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel6.setText("Value:");
+
+        CreateErrorField.setBackground(new java.awt.Color(63, 81, 195));
+        CreateErrorField.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        CreateErrorField.setForeground(new java.awt.Color(197, 202, 233));
+        CreateErrorField.setBorder(null);
 
         javax.swing.GroupLayout CreatePaneLayout = new javax.swing.GroupLayout(CreatePane);
         CreatePane.setLayout(CreatePaneLayout);
         CreatePaneLayout.setHorizontalGroup(
             CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreatePaneLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(117, 117, 117)
                 .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CreatePaneLayout.createSequentialGroup()
-                        .addComponent(CreateButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(CreateHelp))
-                    .addComponent(JSONObjLabel))
-                .addContainerGap(486, Short.MAX_VALUE))
+                        .addComponent(JSONObjLabel5)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePaneLayout.createSequentialGroup()
+                        .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CreateErrorField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePaneLayout.createSequentialGroup()
+                                .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CreateInsertButton)
+                                    .addComponent(CreateKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JSONObjLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CreatePaneLayout.createSequentialGroup()
+                                        .addComponent(JSONObjLabel6)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(CreateValueText, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePaneLayout.createSequentialGroup()
+                                .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSONObjLabel)
+                                    .addGroup(CreatePaneLayout.createSequentialGroup()
+                                        .addComponent(CreateButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CreateHelp)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(122, 122, 122))))
         );
         CreatePaneLayout.setVerticalGroup(
             CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreatePaneLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(20, 20, 20)
+                .addComponent(JSONObjLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JSONObjLabel4)
+                    .addComponent(JSONObjLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CreateKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateValueText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CreateInsertButton)
+                .addGap(39, 39, 39)
                 .addComponent(JSONObjLabel)
-                .addGap(362, 362, 362)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CreateButton)
                     .addComponent(CreateHelp))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(CreateErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("create", CreatePane);
@@ -393,20 +820,19 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
 
         JSONObjLabel1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         JSONObjLabel1.setForeground(new java.awt.Color(197, 202, 233));
-        JSONObjLabel1.setText("Insert Json Object:");
-
-        InsertJSONObj1.setColumns(20);
-        InsertJSONObj1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        InsertJSONObj1.setRows(5);
-        InsertJSONObj1.setText("{\n}");
-        jScrollPane5.setViewportView(InsertJSONObj1);
+        JSONObjLabel1.setText("Insert Map:");
 
         QueryButton.setBackground(new java.awt.Color(83, 109, 254));
         QueryButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         QueryButton.setForeground(new java.awt.Color(255, 255, 255));
-        QueryButton.setText("Query");
+        QueryButton.setText("Query All");
         QueryButton.setContentAreaFilled(false);
         QueryButton.setOpaque(true);
+        QueryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryButtonActionPerformed(evt);
+            }
+        });
 
         QueryHelp.setBackground(new java.awt.Color(83, 109, 254));
         QueryHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -414,37 +840,328 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         QueryHelp.setText("Help");
         QueryHelp.setContentAreaFilled(false);
         QueryHelp.setOpaque(true);
+        QueryHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryHelpActionPerformed(evt);
+            }
+        });
+
+        QueryKeyText.setBackground(new java.awt.Color(63, 81, 195));
+        QueryKeyText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        QueryKeyText.setForeground(new java.awt.Color(197, 202, 233));
+        QueryKeyText.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 202, 233), 2, true));
+
+        QueryValueText.setBackground(new java.awt.Color(63, 81, 195));
+        QueryValueText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        QueryValueText.setForeground(new java.awt.Color(197, 202, 233));
+        QueryValueText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+
+        JSONObjLabel7.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel7.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel7.setText("Value:");
+
+        JSONObjLabel8.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel8.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel8.setText("Key:");
+
+        QueryInsertButton.setBackground(new java.awt.Color(83, 109, 254));
+        QueryInsertButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        QueryInsertButton.setForeground(new java.awt.Color(255, 255, 255));
+        QueryInsertButton.setText("Insert Map");
+        QueryInsertButton.setContentAreaFilled(false);
+        QueryInsertButton.setOpaque(true);
+        QueryInsertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryInsertButtonActionPerformed(evt);
+            }
+        });
+
+        JSONObjLabel9.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        JSONObjLabel9.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel9.setText("Your Object:");
+
+        QueryObjText.setEditable(false);
+        QueryObjText.setBackground(new java.awt.Color(63, 81, 195));
+        QueryObjText.setColumns(20);
+        QueryObjText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        QueryObjText.setForeground(new java.awt.Color(197, 202, 233));
+        QueryObjText.setRows(3);
+        QueryObjText.setText("{\n}");
+        QueryObjText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane9.setViewportView(QueryObjText);
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        QueryErrorField.setBackground(new java.awt.Color(63, 81, 195));
+        QueryErrorField.setColumns(20);
+        QueryErrorField.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        QueryErrorField.setForeground(new java.awt.Color(197, 202, 233));
+        QueryErrorField.setRows(3);
+        QueryErrorField.setLineWrap(true);
+        QueryErrorField.setText("Object(s) Details Here");
+        QueryErrorField.setWrapStyleWord(true);
+        QueryErrorField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane5.setViewportView(QueryErrorField);
+
+        QueryOneButton.setBackground(new java.awt.Color(83, 109, 254));
+        QueryOneButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        QueryOneButton.setForeground(new java.awt.Color(255, 255, 255));
+        QueryOneButton.setText("Query One");
+        QueryOneButton.setContentAreaFilled(false);
+        QueryOneButton.setOpaque(true);
+        QueryOneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QueryOneButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout QueryPaneLayout = new javax.swing.GroupLayout(QueryPane);
         QueryPane.setLayout(QueryPaneLayout);
         QueryPaneLayout.setHorizontalGroup(
             QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QueryPaneLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
                 .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JSONObjLabel1)
                     .addGroup(QueryPaneLayout.createSequentialGroup()
-                        .addComponent(QueryButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(QueryHelp)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addGap(117, 117, 117)
+                        .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QueryInsertButton)
+                            .addGroup(QueryPaneLayout.createSequentialGroup()
+                                .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSONObjLabel9)
+                                    .addComponent(JSONObjLabel8)
+                                    .addComponent(QueryKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JSONObjLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSONObjLabel7)
+                                    .addComponent(QueryValueText, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPaneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(QueryPaneLayout.createSequentialGroup()
+                                .addComponent(QueryButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(QueryOneButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(QueryHelp))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(65, 111, Short.MAX_VALUE))
         );
         QueryPaneLayout.setVerticalGroup(
             QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QueryPaneLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(20, 20, 20)
                 .addComponent(JSONObjLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(QueryButton)
-                    .addComponent(QueryHelp))
-                .addContainerGap(184, Short.MAX_VALUE))
+                    .addComponent(JSONObjLabel8)
+                    .addComponent(JSONObjLabel7))
+                .addGap(10, 10, 10)
+                .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(QueryKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(QueryValueText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(QueryInsertButton)
+                .addGap(39, 39, 39)
+                .addComponent(JSONObjLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(QueryHelp)
+                    .addComponent(QueryOneButton)
+                    .addComponent(QueryButton))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("query", QueryPane);
+
+        SetPane.setBackground(new java.awt.Color(63, 81, 195));
+
+        SetQLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetQLabel.setForeground(new java.awt.Color(197, 202, 233));
+        SetQLabel.setText("Edit the Object here:");
+
+        SetButton.setBackground(new java.awt.Color(83, 109, 254));
+        SetButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetButton.setForeground(new java.awt.Color(255, 255, 255));
+        SetButton.setText("Query One");
+        SetButton.setContentAreaFilled(false);
+        SetButton.setOpaque(true);
+        SetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetButtonActionPerformed(evt);
+            }
+        });
+
+        SetKeyText.setBackground(new java.awt.Color(63, 81, 195));
+        SetKeyText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        SetKeyText.setForeground(new java.awt.Color(197, 202, 233));
+        SetKeyText.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 202, 233), 2, true));
+
+        SetValueText.setBackground(new java.awt.Color(63, 81, 195));
+        SetValueText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        SetValueText.setForeground(new java.awt.Color(197, 202, 233));
+        SetValueText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+
+        JSONObjLabel10.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel10.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel10.setText("Value:");
+
+        JSONObjLabel11.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        JSONObjLabel11.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel11.setText("Key:");
+
+        SetInsertButton.setBackground(new java.awt.Color(83, 109, 254));
+        SetInsertButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetInsertButton.setForeground(new java.awt.Color(255, 255, 255));
+        SetInsertButton.setText("Insert Map");
+        SetInsertButton.setContentAreaFilled(false);
+        SetInsertButton.setOpaque(true);
+        SetInsertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetInsertButtonActionPerformed(evt);
+            }
+        });
+
+        JSONObjLabel12.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        JSONObjLabel12.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel12.setText("Your Object:");
+
+        SetObjText.setEditable(false);
+        SetObjText.setBackground(new java.awt.Color(63, 81, 195));
+        SetObjText.setColumns(20);
+        SetObjText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        SetObjText.setForeground(new java.awt.Color(197, 202, 233));
+        SetObjText.setRows(3);
+        SetObjText.setText("{\n}");
+        SetObjText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane10.setViewportView(SetObjText);
+
+        ChangeButton.setBackground(new java.awt.Color(83, 109, 254));
+        ChangeButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        ChangeButton.setForeground(new java.awt.Color(255, 255, 255));
+        ChangeButton.setText("Enter Changes");
+        ChangeButton.setContentAreaFilled(false);
+        ChangeButton.setOpaque(true);
+        ChangeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangeButtonActionPerformed(evt);
+            }
+        });
+
+        SetQLabel1.setBackground(new java.awt.Color(197, 202, 233));
+        SetQLabel1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetQLabel1.setForeground(new java.awt.Color(197, 202, 233));
+        SetQLabel1.setText("Query the Object you wish to edit here:");
+
+        JSONObjLabel13.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        JSONObjLabel13.setForeground(new java.awt.Color(197, 202, 233));
+        JSONObjLabel13.setText("Insert Map:");
+
+        EditObjText.setBackground(new java.awt.Color(63, 81, 195));
+        EditObjText.setColumns(20);
+        EditObjText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        EditObjText.setForeground(new java.awt.Color(197, 202, 233));
+        EditObjText.setRows(3);
+        EditObjText.setLineWrap(true);
+        EditObjText.setText("{\n}");
+        EditObjText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane11.setViewportView(EditObjText);
+
+        SetHelp.setBackground(new java.awt.Color(83, 109, 254));
+        SetHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetHelp.setForeground(new java.awt.Color(255, 255, 255));
+        SetHelp.setText("Help");
+        SetHelp.setContentAreaFilled(false);
+        SetHelp.setOpaque(true);
+        SetHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetHelpActionPerformed(evt);
+            }
+        });
+
+        SetErrorField.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        SetErrorField.setForeground(new java.awt.Color(240, 240, 240));
+
+        javax.swing.GroupLayout SetPaneLayout = new javax.swing.GroupLayout(SetPane);
+        SetPane.setLayout(SetPaneLayout);
+        SetPaneLayout.setHorizontalGroup(
+            SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SetPaneLayout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SetPaneLayout.createSequentialGroup()
+                        .addComponent(SetButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(SetPaneLayout.createSequentialGroup()
+                        .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SetPaneLayout.createSequentialGroup()
+                                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SetInsertButton)
+                                    .addComponent(JSONObjLabel11)
+                                    .addComponent(SetKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SetPaneLayout.createSequentialGroup()
+                                        .addComponent(JSONObjLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE))
+                                    .addComponent(SetValueText)))
+                            .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(SetPaneLayout.createSequentialGroup()
+                                    .addComponent(ChangeButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(SetHelp)
+                                    .addGap(41, 41, 41)
+                                    .addComponent(SetErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JSONObjLabel13)
+                                .addComponent(SetQLabel1)
+                                .addComponent(JSONObjLabel12)
+                                .addComponent(SetQLabel)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                                .addComponent(jScrollPane11)))
+                        .addGap(118, 118, 118))))
+        );
+        SetPaneLayout.setVerticalGroup(
+            SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SetPaneLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(SetQLabel1)
+                .addGap(5, 5, 5)
+                .addComponent(JSONObjLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JSONObjLabel11)
+                    .addComponent(JSONObjLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SetKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SetValueText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SetInsertButton)
+                .addGap(27, 27, 27)
+                .addComponent(JSONObjLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SetButton)
+                .addGap(31, 31, 31)
+                .addComponent(SetQLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChangeButton)
+                    .addComponent(SetHelp)
+                    .addComponent(SetErrorField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        FunctionsList.addTab("set", SetPane);
 
         GetPane.setBackground(new java.awt.Color(63, 81, 195));
 
@@ -452,7 +1169,10 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         JSONObjLabel2.setForeground(new java.awt.Color(197, 202, 233));
         JSONObjLabel2.setText("Insert ID Number of Object to Get:");
 
+        IDInputGet.setBackground(new java.awt.Color(63, 81, 195));
         IDInputGet.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        IDInputGet.setForeground(new java.awt.Color(197, 202, 233));
+        IDInputGet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
 
         GetButton.setBackground(new java.awt.Color(83, 109, 254));
         GetButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -460,6 +1180,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         GetButton.setText("Get");
         GetButton.setContentAreaFilled(false);
         GetButton.setOpaque(true);
+        GetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GetButtonActionPerformed(evt);
+            }
+        });
 
         GetHelp.setBackground(new java.awt.Color(83, 109, 254));
         GetHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -467,27 +1192,45 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         GetHelp.setText("Help");
         GetHelp.setContentAreaFilled(false);
         GetHelp.setOpaque(true);
+        GetHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GetHelpActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        GetErrorField.setBackground(new java.awt.Color(63, 81, 195));
+        GetErrorField.setColumns(20);
+        GetErrorField.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        GetErrorField.setForeground(new java.awt.Color(197, 202, 233));
+        GetErrorField.setRows(5);
+        GetErrorField.setText("Object Details Here");
+        GetErrorField.setWrapStyleWord(true);
+        GetErrorField.setLineWrap(true);
+        GetErrorField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
+        jScrollPane4.setViewportView(GetErrorField);
 
         javax.swing.GroupLayout GetPaneLayout = new javax.swing.GroupLayout(GetPane);
         GetPane.setLayout(GetPaneLayout);
         GetPaneLayout.setHorizontalGroup(
             GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GetPaneLayout.createSequentialGroup()
-                .addContainerGap(212, Short.MAX_VALUE)
-                .addGroup(GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(GetPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, GetPaneLayout.createSequentialGroup()
                         .addComponent(GetButton)
                         .addGap(18, 18, 18)
                         .addComponent(GetHelp))
-                    .addGroup(GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(IDInputGet, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JSONObjLabel2)))
-                .addGap(212, 212, 212))
+                    .addComponent(JSONObjLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IDInputGet))
+                .addGap(130, 130, 130))
         );
         GetPaneLayout.setVerticalGroup(
             GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GetPaneLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
+                .addGap(99, 99, 99)
                 .addComponent(JSONObjLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(IDInputGet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -495,7 +1238,9 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(GetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GetButton)
                     .addComponent(GetHelp))
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("get", GetPane);
@@ -506,7 +1251,10 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         JSONObjLabel3.setForeground(new java.awt.Color(197, 202, 233));
         JSONObjLabel3.setText("Insert ID Number of Object to Destroy:");
 
+        IDInputDes.setBackground(new java.awt.Color(63, 81, 195));
         IDInputDes.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        IDInputDes.setForeground(new java.awt.Color(197, 202, 233));
+        IDInputDes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(197, 202, 233), 2));
 
         DestroyButton.setBackground(new java.awt.Color(83, 109, 254));
         DestroyButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -514,6 +1262,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         DestroyButton.setText("Destroy");
         DestroyButton.setContentAreaFilled(false);
         DestroyButton.setOpaque(true);
+        DestroyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DestroyButtonActionPerformed(evt);
+            }
+        });
 
         DestroyHelp.setBackground(new java.awt.Color(83, 109, 254));
         DestroyHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
@@ -536,7 +1289,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addGroup(DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(JSONObjLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(IDInputDes)))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         DestroyPaneLayout.setVerticalGroup(
             DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,99 +1302,24 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DestroyButton)
                     .addComponent(DestroyHelp))
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("destroy", DestroyPane);
-
-        SetPane.setBackground(new java.awt.Color(63, 81, 195));
-
-        SetQLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        SetQLabel.setForeground(new java.awt.Color(240, 240, 240));
-        SetQLabel.setText("Query the Object you wish to edit here:");
-
-        SetELabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        SetELabel.setForeground(new java.awt.Color(240, 240, 240));
-        SetELabel.setText("Edit the Object here:");
-
-        SetEInput.setColumns(20);
-        SetEInput.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        SetEInput.setRows(5);
-        jScrollPane6.setViewportView(SetEInput);
-
-        SetQInput.setColumns(20);
-        SetQInput.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        SetQInput.setRows(5);
-        SetQInput.setText("{\n}");
-        jScrollPane7.setViewportView(SetQInput);
-
-        SetButton.setBackground(new java.awt.Color(83, 109, 254));
-        SetButton.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        SetButton.setForeground(new java.awt.Color(255, 255, 255));
-        SetButton.setText("Enter Changes");
-        SetButton.setContentAreaFilled(false);
-        SetButton.setOpaque(true);
-        SetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SetButtonActionPerformed(evt);
-            }
-        });
-
-        SetHelp.setBackground(new java.awt.Color(83, 109, 254));
-        SetHelp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        SetHelp.setForeground(new java.awt.Color(255, 255, 255));
-        SetHelp.setText("Help");
-        SetHelp.setContentAreaFilled(false);
-        SetHelp.setOpaque(true);
-
-        javax.swing.GroupLayout SetPaneLayout = new javax.swing.GroupLayout(SetPane);
-        SetPane.setLayout(SetPaneLayout);
-        SetPaneLayout.setHorizontalGroup(
-            SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SetPaneLayout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-                    .addGroup(SetPaneLayout.createSequentialGroup()
-                        .addComponent(SetButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(SetHelp))
-                    .addComponent(SetELabel)
-                    .addComponent(SetQLabel))
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-        SetPaneLayout.setVerticalGroup(
-            SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SetPaneLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(SetQLabel)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(SetELabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SetButton)
-                    .addComponent(SetHelp))
-                .addContainerGap(108, Short.MAX_VALUE))
-        );
-
-        FunctionsList.addTab("set", SetPane);
 
         javax.swing.GroupLayout FunctionsPaneLayout = new javax.swing.GroupLayout(FunctionsPane);
         FunctionsPane.setLayout(FunctionsPaneLayout);
         FunctionsPaneLayout.setHorizontalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FunctionsList, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+            .addGroup(FunctionsPaneLayout.createSequentialGroup()
+                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         FunctionsPaneLayout.setVerticalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
                 .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
+                .addGap(0, 175, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("Functions", FunctionsPane);
@@ -652,11 +1330,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         DownloadsPane.setLayout(DownloadsPaneLayout);
         DownloadsPaneLayout.setHorizontalGroup(
             DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 864, Short.MAX_VALUE)
+            .addGap(0, 872, Short.MAX_VALUE)
         );
         DownloadsPaneLayout.setVerticalGroup(
             DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 908, Short.MAX_VALUE)
+            .addGap(0, 917, Short.MAX_VALUE)
         );
 
         MenuPane.addTab("Resources", DownloadsPane);
@@ -668,14 +1346,14 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BodyPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(MenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(0, 0, 0))
         );
         BodyPaneLayout.setVerticalGroup(
             BodyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BodyPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(MenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -686,12 +1364,12 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(HeaderPane, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
-                    .addComponent(BodyPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(BodyPane, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(HeaderPane, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HeaderPane, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(BodyPane, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -702,6 +1380,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
 
     private void SetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetButtonActionPerformed
         // TODO add your handling code here:
+        Object result = clothoObject.queryOne(SetMap);
+        SetMap = new HashMap();
+        SetString = "{\n";
+        SetObjText.setText("");
+        EditObjText.setText(result.toString());
     }//GEN-LAST:event_SetButtonActionPerformed
 
     private void CreateUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateUserButtonActionPerformed
@@ -730,11 +1413,146 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         System.out.println(username);
         System.out.println(password);
     }//GEN-LAST:event_LoginButtonActionPerformed
-
+    
+    public static Map CreateMap = new HashMap();
+    public static String CreateString = "{\n";
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
         // TODO add your handling code here:
-        
+        Object result = clothoObject.create(CreateMap);
+        CreateMap = new HashMap();
+        CreateString = "{\n";
+        CreateObjText.setText("");
+        CreateErrorField.setText("Object with ID: " + result.toString() + " created!");
     }//GEN-LAST:event_CreateButtonActionPerformed
+    
+    public static Map SetMap = new HashMap();
+    public static String SetString = "{\n";
+    private void SetInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetInsertButtonActionPerformed
+        // TODO add your handling code here:
+        String key = SetKeyText.getText();
+        String value = SetValueText.getText();
+        if (key.length()!= 0 && value.length()!= 0){
+            SetMap.put(key, value);
+            SetString += "\""+ key +"\"=\""+value+"\",\n";
+        }
+        SetObjText.setText(SetString+"}");
+        SetKeyText.setText("");
+        SetValueText.setText("");
+    }//GEN-LAST:event_SetInsertButtonActionPerformed
+
+    private void ChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeButtonActionPerformed
+        // TODO add your handling code here:
+        String jsonString = EditObjText.getText();
+        jsonString = jsonString.substring(0,jsonString.length()-29) + "}";
+        HashMap<String,String> map = new Gson().fromJson(jsonString, new TypeToken<HashMap<String, String>>(){}.getType());
+        Object result = clothoObject.set(map);
+        SetErrorField.setText("Object Set!");
+    }//GEN-LAST:event_ChangeButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        // TODO add your handling code here:
+        clothoObject.logout();
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+    
+    private void CreateInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateInsertButtonActionPerformed
+        // TODO add your handling code here:
+        String key = CreateKeyText.getText();
+        String value = CreateValueText.getText();
+        if (key.length()!= 0 && value.length()!= 0){
+            CreateMap.put(key, value);
+            CreateString += "\""+ key +"\"=\""+value+"\",\n";
+        }
+        CreateObjText.setText(CreateString+"}");
+        CreateKeyText.setText("");
+        CreateValueText.setText("");
+    }//GEN-LAST:event_CreateInsertButtonActionPerformed
+
+    private void GetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetButtonActionPerformed
+        // TODO add your handling code here:
+        String data = IDInputGet.getText();
+        Object res =clothoObject.get(data);
+        IDInputGet.setText("");
+        GetErrorField.setText("Object with ID " + data + ": "+ res.toString());
+    }//GEN-LAST:event_GetButtonActionPerformed
+
+    private void DestroyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DestroyButtonActionPerformed
+        // TODO add your handling code here:
+        String data = IDInputDes.getText();
+        IDInputDes.setText("");
+    }//GEN-LAST:event_DestroyButtonActionPerformed
+    
+    public static Map QueryMap = new HashMap();
+    public static String QueryString = "{\n";
+    private void QueryInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryInsertButtonActionPerformed
+        // TODO add your handling code here:
+        String key = QueryKeyText.getText();
+        String value = QueryValueText.getText();
+        if (key.length()!= 0 && value.length()!= 0){
+            QueryMap.put(key, value);
+            QueryString += "\""+ key +"\"=\""+value+"\",\n";
+        }
+        QueryObjText.setText(QueryString+"}");
+        QueryKeyText.setText("");
+        QueryValueText.setText("");
+    }//GEN-LAST:event_QueryInsertButtonActionPerformed
+
+    private void QueryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryButtonActionPerformed
+        // TODO add your handling code here:
+        Object result = clothoObject.query(QueryMap);
+        QueryMap = new HashMap();
+        QueryString = "{\n";
+        QueryObjText.setText("");
+        QueryErrorField.setText(result.toString());
+    }//GEN-LAST:event_QueryButtonActionPerformed
+
+    private void QueryOneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryOneButtonActionPerformed
+        // TODO add your handling code here:
+        Object result = clothoObject.queryOne(QueryMap);
+        QueryMap = new HashMap();
+        QueryString = "{\n";
+        QueryObjText.setText("");
+        QueryErrorField.setText(result.toString());
+    }//GEN-LAST:event_QueryOneButtonActionPerformed
+
+    private void CreateHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateHelpActionPerformed
+        // TODO add your handling code here:
+        HelpCreateDialog.setVisible(true);
+    }//GEN-LAST:event_CreateHelpActionPerformed
+
+    private void CloseQueryHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseQueryHelpActionPerformed
+        // TODO add your handling code here:
+        HelpQueryDialog.dispose();
+    }//GEN-LAST:event_CloseQueryHelpActionPerformed
+
+    private void QueryHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryHelpActionPerformed
+        // TODO add your handling code here:
+        HelpQueryDialog.setVisible(true);
+    }//GEN-LAST:event_QueryHelpActionPerformed
+
+    private void CloseCreateHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseCreateHelpActionPerformed
+        // TODO add your handling code here:
+        HelpCreateDialog.dispose();
+    }//GEN-LAST:event_CloseCreateHelpActionPerformed
+
+    private void CloseGetHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseGetHelpActionPerformed
+        // TODO add your handling code here:
+        HelpGetDialog.dispose();
+    }//GEN-LAST:event_CloseGetHelpActionPerformed
+
+    private void GetHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetHelpActionPerformed
+        // TODO add your handling code here:
+        HelpGetDialog.setVisible(true);
+    }//GEN-LAST:event_GetHelpActionPerformed
+
+    private void CloseQueryHelp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseQueryHelp1ActionPerformed
+        // TODO add your handling code here:
+        HelpSetDialog.dispose();
+    }//GEN-LAST:event_CloseQueryHelp1ActionPerformed
+
+    private void SetHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetHelpActionPerformed
+        // TODO add your handling code here:
+        HelpSetDialog.setVisible(true);
+    }//GEN-LAST:event_SetHelpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -776,29 +1594,52 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea AboutText;
     private javax.swing.JPanel AccountPane;
     private javax.swing.JPanel BodyPane;
+    private javax.swing.JButton ChangeButton;
+    private javax.swing.JButton CloseCreateHelp;
+    private javax.swing.JButton CloseGetHelp;
+    private javax.swing.JButton CloseQueryHelp;
+    private javax.swing.JButton CloseQueryHelp1;
     private javax.swing.JButton CreateButton;
+    private javax.swing.JTextField CreateErrorField;
     private javax.swing.JButton CreateHelp;
+    private javax.swing.JButton CreateInsertButton;
+    private javax.swing.JTextField CreateKeyText;
+    private javax.swing.JTextArea CreateObjText;
     private javax.swing.JPanel CreatePane;
-    private javax.swing.JButton CreateUserButton;
     private javax.swing.JLabel CreateUserLabel;
+    private javax.swing.JTextField CreateValueText;
     private javax.swing.JButton DestroyButton;
     private javax.swing.JButton DestroyHelp;
     private javax.swing.JPanel DestroyPane;
     private javax.swing.JPanel DownloadsPane;
+    private javax.swing.JTextArea EditObjText;
     private javax.swing.JTabbedPane FunctionsList;
     private javax.swing.JPanel FunctionsPane;
     private javax.swing.JButton GetButton;
+    private javax.swing.JTextArea GetErrorField;
     private javax.swing.JButton GetHelp;
     private javax.swing.JPanel GetPane;
     private javax.swing.JLayeredPane HeaderPane;
+    private javax.swing.JDialog HelpCreateDialog;
+    private javax.swing.JDialog HelpGetDialog;
+    private javax.swing.JDialog HelpQueryDialog;
+    private javax.swing.JDialog HelpSetDialog;
     private javax.swing.JTextField IDInputDes;
     private javax.swing.JTextField IDInputGet;
-    private javax.swing.JTextArea InsertJSONObj1;
     private javax.swing.JLabel JSONObjLabel;
     private javax.swing.JLabel JSONObjLabel1;
+    private javax.swing.JLabel JSONObjLabel10;
+    private javax.swing.JLabel JSONObjLabel11;
+    private javax.swing.JLabel JSONObjLabel12;
+    private javax.swing.JLabel JSONObjLabel13;
     private javax.swing.JLabel JSONObjLabel2;
     private javax.swing.JLabel JSONObjLabel3;
-    private javax.swing.JButton LoginButton;
+    private javax.swing.JLabel JSONObjLabel4;
+    private javax.swing.JLabel JSONObjLabel5;
+    private javax.swing.JLabel JSONObjLabel6;
+    private javax.swing.JLabel JSONObjLabel7;
+    private javax.swing.JLabel JSONObjLabel8;
+    private javax.swing.JLabel JSONObjLabel9;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTabbedPane MenuPane;
     private javax.swing.JLabel NonaIcon;
@@ -809,26 +1650,52 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel PassLabel1;
     private javax.swing.JLabel PassLabel2;
     private javax.swing.JButton QueryButton;
+    private javax.swing.JTextArea QueryErrorField;
     private javax.swing.JButton QueryHelp;
+    private javax.swing.JButton QueryInsertButton;
+    private javax.swing.JTextField QueryKeyText;
+    private javax.swing.JTextArea QueryObjText;
+    private javax.swing.JButton QueryOneButton;
     private javax.swing.JPanel QueryPane;
+    private javax.swing.JTextField QueryValueText;
     private javax.swing.JButton SetButton;
-    private javax.swing.JTextArea SetEInput;
-    private javax.swing.JLabel SetELabel;
+    private javax.swing.JLabel SetErrorField;
     private javax.swing.JButton SetHelp;
+    private javax.swing.JButton SetInsertButton;
+    private javax.swing.JTextField SetKeyText;
+    private javax.swing.JTextArea SetObjText;
     private javax.swing.JPanel SetPane;
-    private javax.swing.JTextArea SetQInput;
     private javax.swing.JLabel SetQLabel;
+    private javax.swing.JLabel SetQLabel1;
+    private javax.swing.JTextField SetValueText;
     private javax.swing.JTextArea StartText;
     private javax.swing.JTextField UserInput1;
     private javax.swing.JTextField UserInput2;
     private javax.swing.JLabel UserLabel1;
     private javax.swing.JLabel UserLabel2;
     private javax.swing.JLabel WelcomeLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
+   
+    
 }
