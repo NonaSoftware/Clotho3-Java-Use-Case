@@ -159,8 +159,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         EditObjText = new javax.swing.JTextArea();
         SetHelp = new javax.swing.JButton();
-        SetErrorField = new javax.swing.JLabel();
         ClearQuery1 = new javax.swing.JButton();
+        SetErrorField = new javax.swing.JLabel();
         GetPane = new javax.swing.JPanel();
         JSONObjLabel2 = new javax.swing.JLabel();
         IDInputGet = new javax.swing.JTextField();
@@ -949,7 +949,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addComponent(CreateHelp))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("create", CreatePane);
@@ -1244,8 +1244,6 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             }
         });
 
-        SetErrorField.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-
         ClearQuery1.setBackground(new java.awt.Color(83, 109, 254));
         ClearQuery1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         ClearQuery1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1258,6 +1256,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             }
         });
 
+        SetErrorField.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout SetPaneLayout = new javax.swing.GroupLayout(SetPane);
         SetPane.setLayout(SetPaneLayout);
         SetPaneLayout.setHorizontalGroup(
@@ -1265,9 +1265,6 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             .addGroup(SetPaneLayout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SetPaneLayout.createSequentialGroup()
-                        .addComponent(SetErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(SetPaneLayout.createSequentialGroup()
                         .addComponent(SetButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1290,17 +1287,19 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                                     .addGroup(SetPaneLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(SetValueText))))
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, SetPaneLayout.createSequentialGroup()
-                                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(SetPaneLayout.createSequentialGroup()
+                                .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JSONObjLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSONObjLabel12, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SetQLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, SetPaneLayout.createSequentialGroup()
                                         .addComponent(ChangeButton)
                                         .addGap(18, 18, 18)
-                                        .addComponent(SetHelp))
-                                    .addComponent(JSONObjLabel13)
-                                    .addComponent(JSONObjLabel12)
-                                    .addComponent(SetQLabel))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(SetHelp)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SetErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(107, 107, 107))))
         );
         SetPaneLayout.setVerticalGroup(
@@ -1333,9 +1332,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SetPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChangeButton)
-                    .addComponent(SetHelp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SetErrorField)
+                    .addComponent(SetHelp)
+                    .addComponent(SetErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1422,7 +1420,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addComponent(GetHelp))
                 .addGap(69, 69, 69)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("get", GetPane);
@@ -1473,7 +1471,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                         .addComponent(DestroyHelp))
                     .addComponent(JSONObjLabel3)
                     .addComponent(IDInputDes, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DestroyPaneLayout.setVerticalGroup(
             DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1497,12 +1495,12 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 964, Short.MAX_VALUE))
+                .addComponent(FunctionsList, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE))
         );
         FunctionsPaneLayout.setVerticalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
-                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 626, Short.MAX_VALUE)
+                .addComponent(FunctionsList, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1669,33 +1667,27 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         DownloadsPaneLayout.setHorizontalGroup(
             DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DownloadsPaneLayout.createSequentialGroup()
-                .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DownloadsPaneLayout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(DownloadsPaneLayout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(link1)
-                            .addComponent(link)
-                            .addComponent(link2)
-                            .addComponent(link4)))
-                    .addGroup(DownloadsPaneLayout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(link3)
-                            .addComponent(link6)
-                            .addComponent(link5)))
-                    .addGroup(DownloadsPaneLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jLabel4)))
+                .addGap(95, 95, 95)
+                .addComponent(jLabel4)
                 .addContainerGap(118, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(213, 213, 213))
+                .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(213, 213, 213))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
+                        .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(link3)
+                            .addComponent(link6)
+                            .addComponent(link5)
+                            .addComponent(link1)
+                            .addComponent(link)
+                            .addComponent(link2)
+                            .addComponent(link4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(298, 298, 298))))
         );
         DownloadsPaneLayout.setVerticalGroup(
             DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1710,7 +1702,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addComponent(link5)
                 .addGap(52, 52, 52)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(link)
                 .addGap(18, 18, 18)
                 .addComponent(link1)
@@ -1718,11 +1710,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addComponent(link2)
                 .addGap(18, 18, 18)
                 .addComponent(link4)
-                .addGap(75, 75, 75)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("Resources", DownloadsPane);
@@ -1742,12 +1734,17 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         BodyPane.setLayout(BodyPaneLayout);
         BodyPaneLayout.setHorizontalGroup(
             BodyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane17)
             .addGroup(BodyPaneLayout.createSequentialGroup()
-                .addGroup(BodyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(MenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(MenuPane, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BodyPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(BodyPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BodyPaneLayout.setVerticalGroup(
             BodyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1768,7 +1765,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(HeaderPane)
-                    .addComponent(BodyPane, javax.swing.GroupLayout.PREFERRED_SIZE, 966, Short.MAX_VALUE))
+                    .addComponent(BodyPane, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE))
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
