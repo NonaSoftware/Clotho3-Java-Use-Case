@@ -700,6 +700,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
 
         PassInput1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PassInput1.setPreferredSize(new java.awt.Dimension(130, 25));
+        PassInput1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PassInput1KeyPressed(evt);
+            }
+        });
 
         LogoutButton.setBackground(new java.awt.Color(83, 109, 254));
         LogoutButton.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
@@ -1068,6 +1073,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         CreateErrorField1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         CreateErrorField1.setBorder(null);
 
+        QueryErrorField2.setEditable(false);
         QueryErrorField2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         QueryErrorField2.setBorder(null);
 
@@ -1128,17 +1134,17 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(JSONObjLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(QueryHelp)
                     .addComponent(QueryOneButton)
                     .addComponent(QueryButton))
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(QueryErrorField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(QueryErrorField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(QueryPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1501,7 +1507,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         FunctionsPaneLayout.setVerticalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
-                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 626, Short.MAX_VALUE)
+                .addComponent(FunctionsList)
                 .addContainerGap())
         );
 
@@ -2301,6 +2307,28 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_IDInputGetKeyPressed
+
+    private void PassInput1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PassInput1KeyPressed
+        // TODO add your handling code here:
+        int keyCode = evt.getKeyCode();
+        if (keyCode == KeyEvent.VK_ENTER) {
+            System.out.println("Logging In...");
+            Object res = null;
+            try{
+                Map UserMap = new HashMap();
+                username = UserInput1.getText();
+                password = PassInput1.getText();
+                UserMap.put("username", username);
+                UserMap.put("password", password);
+                res = clothoObject.login(UserMap);
+            }
+            catch(Exception e){
+                AccountErrorField.setText(e.toString());
+            }
+            UserInput1.setText("");
+            PassInput1.setText("");
+        }
+    }//GEN-LAST:event_PassInput1KeyPressed
 
     /**
      * @param args the command line arguments
