@@ -947,9 +947,9 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CreateButton)
                     .addComponent(CreateHelp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("create", CreatePane);
@@ -1124,7 +1124,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(QueryPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(QueryInsertButton)
                     .addComponent(ClearQuery))
-                .addGap(37, 37, 37)
+                .addGap(25, 25, 25)
                 .addComponent(JSONObjLabel9)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1133,7 +1133,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addComponent(QueryHelp)
                     .addComponent(QueryOneButton)
                     .addComponent(QueryButton))
-                .addGap(40, 40, 40)
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(QueryErrorField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1422,7 +1422,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                     .addComponent(GetHelp))
                 .addGap(69, 69, 69)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("get", GetPane);
@@ -1502,8 +1502,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         FunctionsPaneLayout.setVerticalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
-                .addComponent(FunctionsList)
-                .addGap(0, 0, 0))
+                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 626, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         MenuPane.addTab("Functions", FunctionsPane);
