@@ -185,6 +185,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         link6 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
         TestArea = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -1495,12 +1496,12 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(FunctionsList, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE))
+                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 964, Short.MAX_VALUE))
         );
         FunctionsPaneLayout.setVerticalGroup(
             FunctionsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunctionsPaneLayout.createSequentialGroup()
-                .addComponent(FunctionsList, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+                .addComponent(FunctionsList, javax.swing.GroupLayout.PREFERRED_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1662,6 +1663,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(48, 63, 159));
         jLabel4.setText("Awesome example code is in the clotho Java API: clotho3JavaAPI\\src\\test\\java\\org\\clothoapi\\clotho3javaapi");
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rsz_clotho_icon.png"))); // NOI18N
+
         javax.swing.GroupLayout DownloadsPaneLayout = new javax.swing.GroupLayout(DownloadsPane);
         DownloadsPane.setLayout(DownloadsPaneLayout);
         DownloadsPaneLayout.setHorizontalGroup(
@@ -1672,11 +1675,15 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addContainerGap(118, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(213, 213, 213))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(38, 38, 38)
                 .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(213, 213, 213))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DownloadsPaneLayout.createSequentialGroup()
+                    .addComponent(jLabel2)
+                    .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(link3)
                             .addComponent(link6)
@@ -1684,37 +1691,41 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                             .addComponent(link1)
                             .addComponent(link)
                             .addComponent(link2)
-                            .addComponent(link4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(298, 298, 298))))
+                            .addComponent(link4))
+                        .addGroup(DownloadsPaneLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(224, 224, 224))))
+                .addGap(298, 298, 298))
         );
         DownloadsPaneLayout.setVerticalGroup(
             DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DownloadsPaneLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(link3)
-                .addGap(20, 20, 20)
+                .addGap(16, 16, 16)
                 .addComponent(link6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(link5)
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(link)
                 .addGap(18, 18, 18)
-                .addComponent(link1)
-                .addGap(18, 18, 18)
-                .addComponent(link2)
+                .addGroup(DownloadsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(DownloadsPaneLayout.createSequentialGroup()
+                        .addComponent(link1)
+                        .addGap(18, 18, 18)
+                        .addComponent(link2)))
                 .addGap(18, 18, 18)
                 .addComponent(link4)
-                .addGap(77, 77, 77)
+                .addGap(114, 114, 114)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("Resources", DownloadsPane);
@@ -1765,7 +1776,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(HeaderPane)
-                    .addComponent(BodyPane, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE))
+                    .addComponent(BodyPane, javax.swing.GroupLayout.PREFERRED_SIZE, 966, Short.MAX_VALUE))
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -2424,6 +2435,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
