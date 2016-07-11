@@ -912,7 +912,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                                             .addGroup(CreatePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(CreatePaneLayout.createSequentialGroup()
                                                     .addComponent(CreateInsertButton)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addGap(18, 18, 18)
                                                     .addComponent(ClearCreate))
                                                 .addComponent(JSONObjLabel4)
                                                 .addComponent(CreateKeyText, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1235,7 +1235,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         EditObjText.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         EditObjText.setRows(3);
         EditObjText.setLineWrap(true);
-        EditObjText.setText("{\n}");
+        EditObjText.setText("Object(s) Details Here");
         EditObjText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane11.setViewportView(EditObjText);
 
@@ -1728,7 +1728,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                         .addComponent(link2)))
                 .addGap(18, 18, 18)
                 .addComponent(link4)
-                .addGap(114, 114, 114)
+                .addGap(85, 85, 85)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
