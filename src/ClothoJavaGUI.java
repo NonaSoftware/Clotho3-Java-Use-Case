@@ -646,6 +646,11 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         UserInput1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         UserInput1.setMinimumSize(new java.awt.Dimension(6, 34));
         UserInput1.setPreferredSize(new java.awt.Dimension(130, 25));
+        UserInput1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserInput1ActionPerformed(evt);
+            }
+        });
 
         LoginLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         LoginLabel.setText("Existing User?");
@@ -725,7 +730,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         AccountPaneLayout.setHorizontalGroup(
             AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AccountPaneLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(110, 110, 110)
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AccountErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LogoutButton)
@@ -737,23 +742,23 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(UserLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(UserLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(LoginLabel))
-                        .addGap(31, 31, 31)
+                        .addGap(45, 45, 45)
                         .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(PassLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AccountPaneLayout.createSequentialGroup()
                                 .addComponent(PassLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(193, Short.MAX_VALUE))
+                                .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         AccountPaneLayout.setVerticalGroup(
             AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,9 +768,9 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UserLabel1)
-                    .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassLabel1)
-                    .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PassInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LoginButton)
                 .addGap(54, 54, 54)
@@ -774,15 +779,15 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(AccountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UserLabel2)
                     .addComponent(PassLabel2)
-                    .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PassInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(CreateUserButton)
                 .addGap(59, 59, 59)
                 .addComponent(LogoutButton)
                 .addGap(39, 39, 39)
                 .addComponent(AccountErrorField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         MenuPane.addTab("Account", AccountPane);
@@ -1746,7 +1751,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Console Output:");
+        jLabel5.setText("Console:");
 
         javax.swing.GroupLayout BodyPaneLayout = new javax.swing.GroupLayout(BodyPane);
         BodyPane.setLayout(BodyPaneLayout);
@@ -2328,6 +2333,10 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             PassInput1.setText("");
         }
     }//GEN-LAST:event_PassInput1KeyPressed
+
+    private void UserInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserInput1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserInput1ActionPerformed
 
     /**
      * @param args the command line arguments

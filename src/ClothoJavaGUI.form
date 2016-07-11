@@ -937,7 +937,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="AccountErrorField" min="-2" pref="330" max="-2" attributes="0"/>
                               <Component id="LogoutButton" min="-2" max="-2" attributes="0"/>
@@ -949,31 +949,31 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="UserLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="UserInput2" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Component id="UserInput2" min="-2" pref="205" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="UserLabel1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="UserInput1" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Component id="UserInput1" min="-2" pref="205" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="LoginLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="PassLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="PassInput2" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Component id="PassInput2" min="-2" pref="205" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="PassLabel1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="PassInput1" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Component id="PassInput1" min="-2" pref="205" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="193" max="32767" attributes="0"/>
+                          <EmptySpace pref="109" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -985,9 +985,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="UserLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="UserInput1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="UserInput1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="PassLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="PassInput1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="PassInput1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="LoginButton" min="-2" max="-2" attributes="0"/>
@@ -997,8 +997,8 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="UserLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="PassLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="UserInput2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="PassInput2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="UserInput2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="PassInput2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="CreateUserButton" min="-2" max="-2" attributes="0"/>
@@ -1006,7 +1006,7 @@
                           <Component id="LogoutButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="AccountErrorField" min="-2" pref="36" max="-2" attributes="0"/>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace pref="30" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1032,6 +1032,9 @@
                       <Dimension value="[130, 25]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserInput1ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="LoginLabel">
                   <Properties>
@@ -2839,7 +2842,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Console Output:"/>
+            <Property name="text" type="java.lang.String" value="Console:"/>
           </Properties>
         </Component>
       </SubComponents>
