@@ -34,6 +34,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     public static Clotho clothoObject;
     public static String username;
     public static String password;
+    public static Map UserMap = new HashMap();
 
     public ClothoJavaGUI() {
         initComponents();
@@ -173,6 +174,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         IDInputDes = new javax.swing.JTextField();
         DestroyButton = new javax.swing.JButton();
         DestroyHelp = new javax.swing.JButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        DestroyErrorField = new javax.swing.JTextArea();
         DownloadsPane = new javax.swing.JPanel();
         link = new javax.swing.JButton();
         link1 = new javax.swing.JButton();
@@ -1079,6 +1082,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         CreateErrorField1.setBorder(null);
 
         QueryErrorField2.setEditable(false);
+        QueryErrorField2.setBackground(new java.awt.Color(255, 255, 255));
         QueryErrorField2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         QueryErrorField2.setBorder(null);
 
@@ -1471,20 +1475,32 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane16.setBorder(null);
+
+        DestroyErrorField.setEditable(false);
+        DestroyErrorField.setColumns(20);
+        DestroyErrorField.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        DestroyErrorField.setLineWrap(true);
+        DestroyErrorField.setRows(1);
+        DestroyErrorField.setWrapStyleWord(true);
+        DestroyErrorField.setBorder(null);
+        jScrollPane16.setViewportView(DestroyErrorField);
+
         javax.swing.GroupLayout DestroyPaneLayout = new javax.swing.GroupLayout(DestroyPane);
         DestroyPane.setLayout(DestroyPaneLayout);
         DestroyPaneLayout.setHorizontalGroup(
             DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DestroyPaneLayout.createSequentialGroup()
                 .addGap(107, 107, 107)
-                .addGroup(DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane16)
                     .addGroup(DestroyPaneLayout.createSequentialGroup()
                         .addComponent(DestroyButton)
                         .addGap(18, 18, 18)
                         .addComponent(DestroyHelp))
                     .addComponent(JSONObjLabel3)
-                    .addComponent(IDInputDes, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(IDInputDes, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         DestroyPaneLayout.setVerticalGroup(
             DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1497,7 +1513,9 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
                 .addGroup(DestroyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DestroyButton)
                     .addComponent(DestroyHelp))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         FunctionsList.addTab("destroy", DestroyPane);
@@ -1821,7 +1839,6 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             System.out.println("Creating User...");
-            Map UserMap = new HashMap();
             username = UserInput2.getText();
             password = PassInput2.getText();
             UserMap.put("username", username);
@@ -1840,7 +1857,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         System.out.println("Logging In...");
         Object res = null;
         try{
-            Map UserMap = new HashMap();
+            UserMap = new HashMap();
             username = UserInput1.getText();
             password = PassInput1.getText();
             UserMap.put("username", username);
@@ -1860,6 +1877,8 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object res = null;
         try{
+            UserMap = new HashMap();
+            res = clothoObject.login(UserMap);
             res = clothoObject.create(CreateMap);
             CreateMap = new HashMap();
             CreateString = "{\n";
@@ -1939,8 +1958,15 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
 
     private void DestroyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DestroyButtonActionPerformed
         // TODO add your handling code here:
-        String data = IDInputDes.getText();
-        IDInputDes.setText("");
+        try{
+            String data = IDInputDes.getText();
+            Object res =clothoObject.destroy(data);
+            IDInputDes.setText("");
+            DestroyErrorField.setText("Object with ID " + data + ": "+ res.toString());
+        }
+        catch(Exception e){
+            DestroyErrorField.setText(e.toString());
+        }
     }//GEN-LAST:event_DestroyButtonActionPerformed
 
     public static Map QueryMap = new HashMap();
@@ -2399,6 +2425,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel CreateUserLabel;
     private javax.swing.JTextField CreateValueText;
     private javax.swing.JButton DestroyButton;
+    private javax.swing.JTextArea DestroyErrorField;
     private javax.swing.JButton DestroyHelp;
     private javax.swing.JPanel DestroyPane;
     private javax.swing.JPanel DownloadsPane;
@@ -2484,6 +2511,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
