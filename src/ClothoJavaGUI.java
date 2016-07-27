@@ -1448,7 +1448,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
         JSONObjLabel3.setText("Insert ID Number of Object to Destroy:");
 
         IDInputDes.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        IDInputDes.setForeground(new java.awt.Color(197, 202, 233));
+        IDInputDes.setForeground(new java.awt.Color(0, 0, 0));
         IDInputDes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         DestroyButton.setBackground(new java.awt.Color(83, 109, 254));
@@ -1962,7 +1962,7 @@ public class ClothoJavaGUI extends javax.swing.JFrame {
             String data = IDInputDes.getText();
             Object res =clothoObject.destroy(data);
             IDInputDes.setText("");
-            DestroyErrorField.setText("Object with ID " + data + ": "+ res.toString());
+            DestroyErrorField.setText("Object with ID: "+ res.toString());
         }
         catch(Exception e){
             DestroyErrorField.setText(e.toString());
